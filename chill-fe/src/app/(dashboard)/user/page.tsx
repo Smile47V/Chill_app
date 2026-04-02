@@ -1,16 +1,44 @@
 "use client"
-import Card from "@/component/card";
+import Card from "@/app/(dashboard)/component/card";
 import Image from "next/image";
 import { DataTable } from "@/components/shared/data-table"
+import { useRouter } from "next/dist/client/components/navigation";
+import { useState } from "react"
 
 function User() {
-    const columns = [
-        { key: "name", label: "Name" },
-        { key: "phone", label: "Phone number" },
-        { key: "email", label: "Email" },
-        { key: "created", label: "created Events" },
-        { key: "registered", label: "Registered Events" },
 
+
+    const [date, setDate] = useState<Date | undefined>()
+    const columns = [
+        {
+            key: "name",
+            label: "Name",
+            render: (row: any) => (
+                <div className="font-medium text-[#101928]">
+                    {row.name}
+                </div>
+            ),
+        },
+        {
+            key: "phone",
+            label: "Phone number",
+            className: "text-gray-600",
+        },
+        {
+            key: "email",
+            label: "Email",
+            className: "text-gray-600",
+        },
+        {
+            key: "created",
+            label: "Created Events",
+            className: "text-gray-600",
+        },
+        {
+            key: "registered",
+            label: "Registered Events",
+            className: "text-gray-600",
+        },
     ]
 
     const data = [
@@ -156,6 +184,15 @@ function User() {
         },
     ];
 
+
+    const router = useRouter();
+
+    const handleMenuClick = (row: any) => {
+        const slug = row.name.toLowerCase().replace(/\s+/g, "-");
+
+        router.push(`/user/${slug}`);
+    }
+
     return (
         <div>
             <div className="flex flex-row-reverse">
@@ -190,11 +227,11 @@ function User() {
             <DataTable
                 columns={columns}
                 data={data}
-                showAvatar
-                avatarKey="avatar"
                 showMenu
-                onMenuClick={(row) => console.log("Menu clicked", row)}
+                onMenuClick={handleMenuClick}
             />
+
+
 
         </div>
     )
