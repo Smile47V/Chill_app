@@ -78,7 +78,7 @@ export function DataTable<T extends Record<string, any>>({
     return (
         <div className="w-full bg-[#FFFFFF]">
 
-            {/* Top Right Date Picker */}
+
             {showDatePicker && (
                 <div className="flex items-center gap-2 bg-[#FFFFFF] justify-end mb-4">
                     <Popover>

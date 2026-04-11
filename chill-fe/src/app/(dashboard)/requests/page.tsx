@@ -78,7 +78,11 @@ function Request() {
         router.push(`/requests/${row.event.toLowerCase().replace(/\s+/g, "-")}`)
     }
     return (
-        <div>
+        <div className='h-screen'>
+            <div className='mb-4'>
+                <h1 className='font-bold text-2xl'>Requests</h1>
+                <p className="text-gray-500">Showing Data over the last 30 days</p>
+            </div>
             <DataTable
                 columns={columns}
                 data={data}
