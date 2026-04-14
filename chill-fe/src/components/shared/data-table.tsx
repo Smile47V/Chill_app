@@ -132,9 +132,9 @@ export function DataTable<T extends Record<string, any>>({
                     {/* Header */}
                     <TableHeader className="bg-gray-50">
                         <TableRow className="border-b-gray-100 shadow">
-                            {columns.map((column) => (
+                            {columns.map((column, index) => (
                                 <TableHead
-                                    key={column.key}
+                                    key={column.label || column.key || index}
                                     className={`text-gray-700 font-semibold ${column.headerClassName || ""}`}
                                 >
                                     {column.label}
