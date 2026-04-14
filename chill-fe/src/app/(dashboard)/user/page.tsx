@@ -207,7 +207,7 @@ function User() {
             {/* add the serch bar for mobile */}
 
 
-            <div className=" grid grid-cols-1 md:grid-cols-2 md:w-[75%] lg:w-[50%] gap-3 mb-3">
+            <div className=" grid grid-cols-1 md:grid-cols-2 md:w-[75%] lg:w-[50%] gap-3 mb-8">
                 <Card
                     title="Total Users"
                     description="1,234"
