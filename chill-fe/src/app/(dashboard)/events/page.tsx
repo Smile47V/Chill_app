@@ -34,7 +34,23 @@ function Event() {
         {
             key: "status",
             label: "Status",
-            className: "text-gray-600",
+            render: (row: any) => (
+                <div
+                    className={`${row.status === "active"
+                            ? "text-[#3B6A56] bg-[#D9F9EB]"
+                            : row.status === "pending"
+                                ? "text-[#FCC50E] bg-[#FDF7D2]"
+                                : row.status === "canceled"
+                                    ? "text-[#FA4B08] bg-[#FDDED2]"
+                                    : row.status === "complete"
+                                        ? "text-[#3B6A56] bg-[#D9F9EB]"
+                                        : "text-[#FA4B08] bg-[#FDDED2]"} w-fit px-4 py-1 rounded-2xl text-sm font-medium`
+                    }
+                >
+                    {row.status}
+                </div>
+            ),
+
         },
     ]
     const data = [

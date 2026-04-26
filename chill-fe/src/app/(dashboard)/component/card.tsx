@@ -9,7 +9,7 @@ interface CardProps {
 
 function Card({ title, description, imageUrl, color, customClassName }: CardProps) {
     return (
-        <div className={`flex p-3 bg-[#FFFFFF]  rounded-lg shadow-lg max-h-23 ${customClassName || ''}`}>
+        <div className={`flex p-3 bg-[#FFFFFF] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg shadow-lg max-h-23 ${customClassName || ''}`}>
             <div className="flex items-center">
                 <div className={`flex justify-center bg-${color || 'gray'} px-3 py-2 items-center`}>
                     <Image src={imageUrl} alt={title} width={50} height={50} className="w-6 h-6" />
